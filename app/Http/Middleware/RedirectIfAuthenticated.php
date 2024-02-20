@@ -15,16 +15,23 @@ class RedirectIfAuthenticated
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, string ...$guards): Response
-    {
-        $guards = empty($guards) ? [null] : $guards;
+    public function handle($request, Closure $next)
+{
 
-        foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+    if ($this->auth->check()) {
+        if($this->auth->user()->sign_up_complete == 1){
+            return redirect('/');
+        } else {
+            if($this->auth->user()->step_one_complete == 0){
+                return redirect('/register/step-1');
+            } elseif($this->auth->user()->step_two_complete == 0){
+                return redirect('/register/step-2');
+            } else {
+                return redirect('/');
             }
         }
-
-        return $next($request);
     }
+
+    return $next($request);
+}
 }

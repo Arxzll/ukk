@@ -1,4 +1,4 @@
-@include('layout.navbar')
+@include('layout.navpetugas')
 @section('content')
 @endsection
 
@@ -9,12 +9,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Perpustakaan Indonesia</title>
+    <title>Document</title>
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
       body{
         background-color:rgb(245, 245, 245);
-
+        overflow: hidden;
       }
       .card{
         width: 200px;
@@ -33,7 +33,7 @@
         width: 100%;
       }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <div id="carouselExampleDark" class="carousel carousel-dark slide carousel-fluid" data-bs-ride="carousel">
@@ -67,74 +67,37 @@
         </button>
       </div>
    
-<section>  
-    <div class="title dark" style="margin-left: 10px;margin-top:5px;" >
-          <h2 class="ms-2">Novel</h2>
-    </div>
-  
-    <div class="d-flex "> 
-      @foreach($buku as $b)
-      @if($b->NamaKategori=='novel')
-    <div class="card ms-3 shadow" style="width: 10rem; margin:5px">
-        <a href="detail_buku/{{$b->Judul}}" itemprop="url">
-          <img src="/image/{{$b->Foto}}" class="card-img-top" alt="...">
-        </a>
-        <div class="card-body">
-          <h6 class="card-title">{{ $b->Judul}}</h6>
-        </div>
-   </div>
-   @endif
-   @endforeach
-  </div>
 
-  <div class="title dark" style="margin-left: 10px;margin-top:5px;" >
-    <h2 class="ms-2">Komik</h2>
-</div>
 
-  <div class="d-flex "> 
-  @foreach($buku as $b)
-  @if($b->NamaKategori=='Komik')
-<div class="card ms-3 shadow" style="width: 10rem; margin:5px">
-    <a href="detail_buku/{{$b->Judul}}" itemprop="url">
-      <img src="/image/{{$b->Foto}}" class="card-img-top" alt="...">
-    </a>
-    <div class="card-body">
-      <h6 class="card-title">{{ $b->Judul}}</h6>
-    </div>
-</div>
-@endif
-@endforeach
-  </div>
-</section>
-<script>
-  @if(session('success'))
-      const Toast = Swal.mixin({
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-              toast.onmouseenter = Swal.stopTimer;
-              toast.onmouseleave = Swal.resumeTimer;
-          }
-      });
-      Toast.fire({
-          icon: "success",
-          title: "{{ session('success') }}"
-      });
-  @elseif(session('error'))
-      Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: '{{ session('error') }}',
-          timer: 3000,
-          showConfirmButton: false
-      });
-  @endif
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+      <script>
+        @if(session('success'))
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+            });
+            Toast.fire({
+                icon: "success",
+                title: "{{ session('success') }}"
+            });
+        @elseif(session('error'))
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: '{{ session('error') }}',
+                timer: 3000,
+                showConfirmButton: false
+            });
+        @endif
+      </script>
+      
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </body>
 <script src="/assets/plugins/common/common.min.js"></script>
 <script src="/assets/js/custom.min.js"></script>

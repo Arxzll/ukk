@@ -98,7 +98,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   box-sizing: border-box; }
 
 html {
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -113,9 +113,9 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: "Roboto", sans-serif;
-  font-size: 0.875rem;
-  font-weight: 400;
+  /* font-family: "Roboto", sans-serif; */
+  /* font-size: 0.875rem; */
+  /* font-weight: 400; */
   line-height: 1.5;
   color: #76838f;
   text-align: left;
@@ -146,7 +146,7 @@ abbr[data-original-title] {
 
 address {
   margin-bottom: 1rem;
-  font-style: normal;
+  /* font-style: normal; */
   line-height: inherit; }
 
 ol,
@@ -162,7 +162,7 @@ ul ol {
   margin-bottom: 0; }
 
 dt {
-  font-weight: 700; }
+  /* font-weight: 700; } */
 
 dd {
   margin-bottom: .5rem;
@@ -172,19 +172,19 @@ blockquote {
   margin: 0 0 1rem; }
 
 dfn {
-  font-style: italic; }
+  /* font-style: italic; } */
 
 b,
 strong {
-  font-weight: bolder; }
+  /* font-weight: bolder; } */
 
 small {
-  font-size: 80%; }
+  /* font-size: 80%; } */
 
 sub,
 sup {
   position: relative;
-  font-size: 75%;
+  /* font-size: 75%; */
   line-height: 0;
   vertical-align: baseline; }
 
@@ -216,8 +216,8 @@ pre,
 code,
 kbd,
 samp {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: 1em; }
+  /* font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; */
+  /* font-size: 1em; } */
 
 pre {
   margin-top: 0;
@@ -266,8 +266,8 @@ select,
 optgroup,
 textarea {
   margin: 0;
-  font-family: inherit;
-  font-size: inherit;
+  /* font-family: inherit; */
+  /* font-size: inherit; */
   line-height: inherit; }
 
 button,
@@ -318,7 +318,7 @@ legend {
   max-width: 100%;
   padding: 0;
   margin-bottom: .5rem;
-  font-size: 1.5rem;
+  /* font-size: 1.5rem; */
   line-height: inherit;
   color: inherit;
   white-space: normal; }
@@ -339,7 +339,7 @@ progress {
   -webkit-appearance: none; }
 
 ::-webkit-file-upload-button {
-  font: inherit;
+  /* font: inherit; */
   -webkit-appearance: button; }
 
 output {
@@ -358,22 +358,22 @@ template {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
-  font-family: inherit;
-  font-weight: 500;
+  /* font-family: inherit; */
+  /* font-weight: 500; */
   line-height: 1.2;
   color: #222222; }
 
 h1, .h1 {
-  font-size: 2.25rem; }
+  /* font-size: 2.25rem; } */
 
 h2, .h2 {
-  font-size: 1.875rem; }
+  /* font-size: 1.875rem; } */
 
 h3, .h3 {
-  font-size: 1.5rem; }
+  /* font-size: 1.5rem; } */
 
 h4, .h4 {
-  font-size: 1.125rem; }
+  /* font-size: 1.125rem; } */
 
 h5, .h5 {
   font-size: 1rem; }
