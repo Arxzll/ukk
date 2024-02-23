@@ -68,6 +68,12 @@
       </div>
    
 <section>  
+
+  {{-- <form class="d-flex justify-content-center " role="search" action="" method="get">
+        <input style="width: 20%;" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+       --}}
     <div class="title dark" style="margin-left: 10px;margin-top:5px;" >
           <h2 class="ms-2">Novel</h2>
     </div>

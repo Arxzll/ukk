@@ -13,6 +13,15 @@ class UserController extends Controller
         ->join('buku', 'buku.BukuID', '=', 'kategoribuku_relasi.BukuID')
        ->get();
 
+
+    //    if(isset($_GET["q"])){
+    //     $list = DB::table('kategoribuku_relasi')
+    //     ->join('kategoribuku', 'kategoribuku.KategoriID', '=', 'kategoribuku_relasi.KategoriID')
+    //     ->join('buku', 'buku.BukuID', '=', 'kategoribuku_relasi.BukuID')
+    //     ->where('KategoriBukuID', '=',$_GET['q'])
+    //     ->get();
+    // }
+
         return view('/home', ['buku' => $buku]);
     }
     public function user()

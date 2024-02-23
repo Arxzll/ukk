@@ -71,7 +71,7 @@
   function showSuccessNotificationAndReload() {
     Swal.fire({
       title: 'Berhasil!',
-      text: 'Peminjaman Berhasil Dibatalkan.',
+      text: 'Peminjaman Berhasil Dihapus.',
       icon: 'success',
       showCancelButton: false,
       confirmButtonColor: '#3085d6',
