@@ -33,7 +33,7 @@ class AuthController extends Controller
         
         
     ]);
-    return redirect('/login');
+    return redirect('/login')->with(['message' => 'Akun berhasil dibuat']);;
     
     
 }

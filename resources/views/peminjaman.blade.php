@@ -9,7 +9,9 @@
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
-<body>
+<body  style="background-image: url('/image/bg.jpg');
+background-repeat: no-repeat;
+  background-size: cover;">
     
     <div class="col pt-5">
 @foreach ($list as $list)
@@ -27,7 +29,7 @@
                             </span>
                         </h6>
                         <h6 class="mb-0">Status: {{$list->StatusPeminjaman}} </h6>
-                        @if ($list->StatusPeminjaman == 'Diterima' || $list->StatusPeminjaman == 'Selesai')
+                        @if ($list->StatusPeminjaman == 'DiTerima' || $list->StatusPeminjaman == 'Selesai' || $list->StatusPeminjaman == 'Di Pinjam')
                         <h6 class="mb-0">Tanggal Pengambilan: {{$list->TanggalPeminjaman}}</h6>
                     @else
                         <p>Tanggal Pengambilan: -</p>

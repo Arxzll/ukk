@@ -75,20 +75,17 @@
       </form>
        --}}
        <br>
-       <form class="d-flex justify-content-center " role="search" action="pencarian" method="get">
+       <form class="d-flex justify-content-center " role="search" action="" method="get">
         {{-- @csrf --}}
         {{-- @method("GET") --}}
         <input style="width: 40%;" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
         <button class="btn btn-outline-primary" type="submit">Search</button>
       </form>
 
-    <div class="title dark" style="margin-left: 10px;margin-top:5px;" >
-          <h2 class="ms-2">Novel</h2>
-    </div>
+   
   
     <div class="d-flex "> 
       @foreach($buku as $b)
-      @if($b->NamaKategori=='Novel')
     <div class="card ms-3 shadow" style="width: 10rem; margin:5px">
         <a href="detail_buku/{{$b->Judul}}" itemprop="url">
           <img src="/image/{{$b->Foto}}" class="card-img-top" alt="...">
@@ -97,27 +94,11 @@
           <h6 class="card-title">{{ $b->Judul}}</h6>
         </div>
    </div>
-   @endif
    @endforeach
   </div>
- <div class="title dark" style="margin-left: 10px;margin-top:5px;" >
-    <h2 class="ms-2">Komik</h2>
-</div>
+ 
 
-  <div class="d-flex "> 
-  @foreach($buku as $b)
-  @if($b->NamaKategori=='Komik')
-<div class="card ms-3 shadow" style="width: 10rem; margin:5px">
-    <a href="detail_buku/{{$b->Judul}}" itemprop="url">
-      <img src="/image/{{$b->Foto}}" class="card-img-top" alt="...">
-    </a>
-    <div class="card-body">
-      <h6 class="card-title">{{ $b->Judul}}</h6>
-    </div>
-</div>
-@endif
-@endforeach
-  </div>
+  
 </section>
 <script>
   @if(session('success'))

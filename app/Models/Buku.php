@@ -11,6 +11,6 @@ class Buku extends Model
 
         protected $table = 'buku'; // Sesuaikan dengan nama tabel yang sesuai
         protected $primaryKey = 'BukuID'; // Sesuaikan dengan nama kolom ID di tabel
-        protected $fillable = ['BukuID', 'Judul', 'Penerbit','TahunTerbit'.'Deskripsi','Foto']; // Sesuaikan dengan kolom yang diizinkan untuk mass assignment
+        protected $fillable = ['BukuID', 'Judul', 'Penerbit','TahunTerbit'.'Deskripsi','Foto','Stok']; // Sesuaikan dengan kolom yang diizinkan untuk mass assignment
     
 }

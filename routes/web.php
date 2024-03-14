@@ -10,19 +10,21 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PeminjamanController;
 
 
-
-
-
-Route::get('/login', [LoginController::class, 'tampil']);
-Route::post('/login', [LoginController::class, 'login'])->name("login");
 Route::get('/logout', [LoginController::class, 'logout']);
 
-Route::post('/register', [AuthController::class, 'store']);
-Route::get('/register', [AuthController::class, 'tampil']);
 
-Route::middleware(['user'])->group(function () {
-    // Rute yang memerlukan middleware "user"
+Route::middleware(['redirectIfAuthenticated'])->group(function () {
+    Route::get('/login', [LoginController::class, 'tampil']);
+    Route::post('/login', [LoginController::class, 'login'])->name("login");
+
+    Route::post('/register', [AuthController::class, 'store']);
+    Route::get('/register', [AuthController::class, 'tampil']);
+});
+
+Route::group(['middleware' => 'level:user'], function(){
+// Rute yang memerlukan middleware "user"
     Route::get('/home', [UserController::class, 'home' ]);
+    Route::get('/pencarian', [UserController::class, 'pencarian' ]);
     Route::get('/detail_buku/{Judul}', [BukuController::class, 'detail_buku']);
     Route::POST('/CommentController/komen/{id}', [CommentController::class, 'komen']);
     Route::get('/layout/navbar', [UserController::class, 'user']);
@@ -35,7 +37,7 @@ Route::middleware(['user'])->group(function () {
     
 });
 
-// Route::middleware(['petugas'])->group(function () {
+Route::group(['middleware' => 'level:petugas,admin'], function(){
     // Rute yang memerlukan middleware AdminPetugasMiddleware
     Route::get('/petugas/tambah_buku', [BukuController::class, 'tampil']);
     Route::post('/petugas/tambah_buku', [BukuController::class, 'store']);
@@ -62,6 +64,6 @@ Route::get('/petugas/pinjam-buku/{id}', [PetugasController::class, 'pinjam']);
 Route::get('/petugas/selesai-buku/{id}', [PetugasController::class, 'selesai']);
 
 
-// });
+});
 
 

@@ -47,6 +47,7 @@ class BukuController extends Controller
             'TahunTerbit' => $request->TahunTerbit,
             'Deskripsi' => $request->Deskripsi,
             'Foto' => $namaFoto,
+            'Stok' => $request->Stok,
         ]);
 
         return back()->with(['message' => 'Buku berhasil dibuat']);
@@ -91,12 +92,19 @@ class BukuController extends Controller
     
     public function detail_buku($Judul)
     {
-        $buku = DB::table('buku')->where('Judul', '=', $Judul)->first();
+        $buku = DB::table('buku')->where('Judul', '=', $Judul)
+        ->first();
+        $peminjaman = DB::table('peminjaman')->where([['BukuID' ,'=',$buku->BukuID] , ['UserID','=', Auth::user()->UserID ]]);
+        $kategori = DB::table('kategoribuku_relasi')->where('BukuID', '=', $buku->BukuID)
+        ->join('kategoribuku', 'kategoribuku.KategoriID', '=', 'kategoribuku_relasi.KategoriID')
+        ->first();
+        
         $ulasan = DB::table('user')
+
         ->join('ulasanbuku', 'ulasanbuku.UserID', '=', 'user.UserID')
         ->where('BukuID', '=', $buku->BukuID)->get();
         
-        return view('detail_buku', ['buku' => $buku, 'ulasan' => $ulasan]);
+        return view('detail_buku', ['buku' => $buku, 'ulasan' => $ulasan, 'kategori'=>$kategori]);
     }
     public function tampil_masuk_kategori(){
         $kategori = DB::table('kategoribuku')->get();

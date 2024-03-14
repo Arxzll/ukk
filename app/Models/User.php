@@ -30,4 +30,10 @@ class User extends Authenticatable
 
     // Specify the table name for the model
     protected $table = 'user';
+
+    public function scopeIsNotAdmin($query)
+    {
+        return $query->where('level', '!=', 'Admin');
+    }
+
 }

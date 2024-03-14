@@ -51,12 +51,12 @@
              <li><strong>Nama Peminjam:</strong> {{$detail->username}}</li>
              <li><strong>Nama Buku:</strong> {{$detail->Judul}}</li>
              <li><strong>Status:</strong> {{$detail->StatusPeminjaman}}</li>
-             @if ($detail->StatusPeminjaman == 'diterima' || $detail->StatusPeminjaman == 'selesai')
+             @if ($detail->StatusPeminjaman == 'DiTerima' || $detail->StatusPeminjaman == 'Selesai' || $detail->StatusPeminjaman == 'Di Pinjam')
             <li><strong>Tanggal Peminjaman:</strong> {{$detail->TanggalPeminjaman}}</li>
             @else
             <li><strong>Tanggal peminjaman:</strong>-</li>
         @endif
-            @if ($detail->StatusPeminjaman == 'diterima' || $detail->StatusPeminjaman == 'selesai')
+            @if ($detail->StatusPeminjaman == 'DiTerima' || $detail->StatusPeminjaman == 'Selesai' || $detail->StatusPeminjaman == 'Di Pinjam')
             <li><strong>Tanggal Pengembilan:</strong>{{$detail->TanggalPeminjaman}}</li>
         @else
             <li><strong>Tanggal pengembalian:</strong>-</li>
@@ -70,9 +70,9 @@
       </div>
       @endforeach
     </div>
-    <div class="card shadow">
+    {{-- <div class="card shadow">
         <button class="btn btn-outline-primary m-2"> cetak struk</button>
-    </div>
+    </div> --}}
 </div>
 
 <script>

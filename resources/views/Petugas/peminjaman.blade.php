@@ -9,14 +9,16 @@
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
-<body>
+<body  style="background-image: url('/image/bg.jpg');
+    background-repeat: no-repeat;
+      background-size: cover;">
     
   <div class="col pt-5">
       <form class="d-flex justify-content-center " role="search" action="" method="get">
         {{-- @csrf --}}
         {{-- @method("GET") --}}
         <input style="width: 20%;" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <button class="btn btn-outline-primary" type="submit">Search</button>
       </form>
 @foreach ($list as $list)
     

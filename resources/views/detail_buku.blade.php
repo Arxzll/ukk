@@ -104,12 +104,14 @@
 <div class="container" style="margin-left: 5%;margin-top:6%; ">
   <div class="row">
     <div class="col-3">
-      <div class="gambar shadow">
-          <img src="/image/{{$buku->Foto}}" class="img-thumbnail" alt="Image" onclick="openImageModal('/image/{{$buku->Foto}}')">
-      </div>
+      <div class="gambar shadow" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <img src="/image/{{$buku->Foto}}" class="img-thumbnail" alt="Image" onclick="openImageModal('/image/{{$buku->Foto}}')" style="max-width: 100%; max-height: 100%; width: 100%; height: auto;">
+    </div>
+    
       <p> <br>Penulis: {{$buku->Penulis}}
       <br>Penerbit: {{$buku->Penerbit}}
       <br>Tahun Terbit: {{$buku->TahunTerbit}}
+      <br>Kategori: {{$kategori->NamaKategori}}
       </p>
     </div>
 
@@ -120,7 +122,7 @@
     <div class="mt-5">
       <h5><b><u>Deskripsi Buku</u></b></h5>
       <p class="text-justify" id="bookDescription">
-        <span id="shortDescription">{{ substr($buku->Deskripsi, 0, 300) }} .........</span>
+        <span id="shortDescription">{{ substr($buku->Deskripsi, 0, 300) }} .......</span>
         <span id="fullDescription" style="display: none;">{{ $buku->Deskripsi }}</span>
     </p>
     <a href="javascript:void(0);" id="readMoreLink" onclick="toggleDescription()" style="text-decoration: none">Baca Selengkapnya</a> </div>
@@ -130,6 +132,7 @@
       @method('POST')
       @csrf
       <input type="hidden" name="BukuID" value="{{ $buku->BukuID }}">
+      @if
       <button class="btn btn-primary shadow" type="button" onclick="pinjamBuku()">Pinjam</button>
   </form>
   

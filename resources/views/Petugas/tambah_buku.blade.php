@@ -45,6 +45,11 @@
                     <label for="Deskripsi" class="form-label">Deskripsi Buku</label>
                     <input type="text" class="form-control" name="Deskripsi" id="Deskripsi" required>
                 </div>
+
+                <div class="mb-3">
+                    <label for="Deskripsi" class="form-label">Stok</label>
+                    <input type="text" class="form-control" name="s" id="Stok" required>
+                </div>
         
                 <div class="mb-3">
                     <label for="Foto" class="form-label" style="color: white;">Foto</label>

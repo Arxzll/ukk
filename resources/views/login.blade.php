@@ -7,9 +7,9 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
       <title>Document</title>
-      <link rel="stylesheet" href="css/register.css">
-      <link rel="stylesheet" href="css/bg.css">
+    
       <style>
+
         @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Asap+Condensed:wght@200;300;500;600&family=Bebas+Neue&display=swap');
            body{
              font-family: "Asap Condensed";
@@ -27,7 +27,9 @@
           <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         </head>
 
-    <body class="align">
+    <body class="align" style="background-image: url('/image/bg.jpg');
+    background-repeat: no-repeat;
+      background-size: cover;">
 
       {{-- <h1>Loginnnn</h1> --}}
       <div class="grid container mb-5 register" style="margin-top:50px;max-width: 540px; ">
