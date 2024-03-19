@@ -14,24 +14,6 @@ class BukuController extends Controller
     }
     public function store(Request $request)
     {
-        // Validasi data yang diterima
-        // $validatedData = $request->validate([
-        //     'judul' => 'required|string|max:255',
-        //     'penulis' => 'required|string|max:255',
-        //     'penerbit' => 'required|string|max:255',
-        //     'TahunTerbit' => 'required|integer',
-        //     'Deskripsi' => 'required|text',
-        // ]);
-
-        // Memeriksa apakah judul buku sudah ada dalam database
-        // $existingBook = DB::table('buku')->where('Judul', $validatedData['judul'])->first();
-
-        // Jika judul buku sudah ada, kirim pesan kesalahan dengan menggunakan redirect back
-        // if ($existingBook) {
-        //     return back()->with(['error' => 'Judul buku sudah ada dalam database.']);
-        // }
-
-        // Jika judul buku belum ada, tambahkan data ke dalam tabel 'buku'
         $namaFoto = "";
         if ($request->hasFile('Foto')) {
 

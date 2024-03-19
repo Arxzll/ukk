@@ -44,7 +44,7 @@ class AuthController extends Controller
             return abort(403);
           }
           
-        return view('/petugas/tambah_petugas');
+        return view('/Petugas/tambah_petugas');
     }
     public function store_petugas(Request $request)
     {
