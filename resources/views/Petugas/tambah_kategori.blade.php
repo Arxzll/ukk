@@ -16,7 +16,7 @@
 <h1 style="text-align: center; margin-top: 100px; font-weight:bold;">Tambah Kategori</h1>
     <div class="grid container mb-5 register">
       <div class="card container mt-5 shadow-lg" style="width: 50%"> 
-      <form method="POST" action="" class="container mt-3">
+      <form method="POST" action="{{url('petugas/tambah_kategori')}}" class="container mt-3">
         @csrf
         @method('POST')
         

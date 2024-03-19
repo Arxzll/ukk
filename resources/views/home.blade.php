@@ -130,7 +130,7 @@
           @if($b->NamaKategori=='Novel')
             <div class="card ms-3 shadow" style="width: 10rem; margin:5px">
               <a href="detail_buku/{{$b->Judul}}" itemprop="url">
-                <img src="/image/{{$b->Foto}}" class="card-img-top" alt="...">
+                <img src="{{$b->Foto}}" class="card-img-top" alt="...">
               </a>
               <div class="card-body">
                 <h6 class="card-title">{{ $b->Judul}}</h6>

@@ -48,7 +48,7 @@
         
                 <div class="mb-3">
                     <label for="Foto" class="form-label" style="color: white;">Foto</label>
-                    <input class="form-control" name="Foto" type="file">
+                    <input class="form-control" name="Foto" type="url">
                 </div>
                   
                 <center><button type="submit" name="submit" class="btn btn-primary mb-3">Tambah Buku</button></center>

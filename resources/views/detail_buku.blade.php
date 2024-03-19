@@ -120,7 +120,7 @@
   <div class="row">
     <div class="col-3">
       <div class="gambar shadow" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-        <img src="/image/{{$buku->Foto}}" class="img-thumbnail" alt="Image" onclick="openImageModal('/image/{{$buku->Foto}}')" style="max-width: 100%; max-height: 100%; width: 100%; height: auto;">
+        <img src="{{$buku->Foto}}" class="img-thumbnail" alt="Image" onclick="openImageModal('/image/{{$buku->Foto}}')" style="max-width: 100%; max-height: 100%; width: 100%; height: auto;">
     </div>
     
       <p> <br>Penulis: {{$buku->Penulis}}

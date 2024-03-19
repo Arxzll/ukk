@@ -25,7 +25,7 @@ function login(Request $request)
             return redirect("/home")->with(['success' => 'Anda Berhasil Login']);
         } elseif ($user->level == "petugas" || $user->level == "admin") {
             auth()->guard('petugas')->login($user); // Log in as 'petugas' guard
-            return redirect("/Petugas/home")->with(['success' => 'Anda Berhasil Login']);
+            return redirect("/ptugas/home")->with(['success' => 'Anda Berhasil Login']);
         }
     } else {
         return back()->with(['error' => 'Akun tidak ditemukan!']);

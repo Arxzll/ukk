@@ -50,7 +50,7 @@
             <label for="exampleInputPassword1" class="form-label">Password</label>
             <input type="password" class="form-control" name="password" id="exampleInputall1">
             <center><button type="submit" name="submit" class="btn btn-primary mb-3 mt-3">LogIn</button></center>
-          <center><p>Belum Punya Akun?<a href="/register" style="text-decoration: none;"> Klik Disini</a></p> </center>
+          <center><p>Belum Punya Akun?<a href="{{url('/register')}}" style="text-decoration: none;"> Klik Disini</a></p> </center>
         </form>
       </div>
       <script>

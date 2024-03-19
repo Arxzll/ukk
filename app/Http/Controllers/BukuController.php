@@ -14,13 +14,7 @@ class BukuController extends Controller
     }
     public function store(Request $request)
     {
-        $namaFoto = "";
-        if ($request->hasFile('Foto')) {
-
-            // return "hai";
-             $namaFoto = time() . $request->Foto->getClientOriginalName();
-             $request->Foto->move('image', $namaFoto);
-        }
+      
 
         DB::table('buku')->insert([
             'Judul' => $request->judul,
@@ -28,7 +22,7 @@ class BukuController extends Controller
             'Penerbit' => $request->penerbit,
             'TahunTerbit' => $request->TahunTerbit,
             'Deskripsi' => $request->Deskripsi,
-            'Foto' => $namaFoto,
+            'Foto' => $request->Foto,
         ]);
 
         return back()->with(['message' => 'Buku berhasil dibuat']);

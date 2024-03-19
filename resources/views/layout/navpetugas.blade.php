@@ -43,21 +43,21 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="/petugas/home">Beranda</a>
+                        <a class="nav-link" href="{{url('/petugas/home')}}">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/petugas/peminjaman">Peminjaman</a>
+                        <a class="nav-link" href="{{url('/petugas/peminjaman')}}">Peminjaman</a>
                     </li>
                      <li class="nav-item dropdown" style="margin-right: 10px">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                       Tambah
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark">
-                      <li><a class="dropdown-item" href="/petugas/tambah_buku">Tambah Buku</a></li>
-                      <li><a class="dropdown-item" href="/petugas/tambah_kategori">Tambah Kategori</a></li>
-                      <li><a class="dropdown-item" href="/petugas/masuk_kategori">Tambah Kategori Buku</a></li>
+                      <li><a class="dropdown-item" href="{{url('/petugas/tambah_buku')}}">Tambah Buku</a></li>
+                      <li><a class="dropdown-item" href="{{url('/petugas/tambah_kategori')}}">Tambah Kategori</a></li>
+                      <li><a class="dropdown-item" href="{{url('/petugas/masuk_kategori')}}">Tambah Kategori Buku</a></li>
                       @if(auth()->user()->level == 'admin')
-                      <li><a class="dropdown-item" href="/petugas/tambah_petugas">Tambah Petugas</a></li>
+                      <li><a class="dropdown-item" href="{{url('/petugas/tambah_petugas')}}">Tambah Petugas</a></li>
                       @endif
                     </ul>
                   </li>
@@ -68,11 +68,11 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark">
                       @if(auth()->user()->level == 'admin')
-                      <li><a class="dropdown-item" href="/petugas/data_petugas">Data Petugas</a></li>
+                      <li><a class="dropdown-item" href="{{url('/petugas/data_petugas')}}">Data Petugas</a></li>
                       @endif
-                      <li><a class="dropdown-item" href="/petugas/data_buku">Data Buku</a></li>
-                      <li><a class="dropdown-item" href="/petugas/data_user">Data User</a></li>
-                      <li><a class="dropdown-item" href="/petugas/data_kategori">Data kategori</a></li>
+                      <li><a class="dropdown-item" href="{{url('/petugas/data_buku')}}">Data Buku</a></li>
+                      <li><a class="dropdown-item" href="{{url('/petugas/data_user')}}">Data User</a></li>
+                      <li><a class="dropdown-item" href="{{url('/petugas/data_kategori')}}">Data kategori</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -90,7 +90,7 @@
                       <li><a class="dropdown-item" href="#">Profil Saya</a></li>
                       <li><a class="dropdown-item" href="#">Pengaturan</a></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="/logout">Keluar</a></li>
+                      <li><a class="dropdown-item" href="{{url('/logout')}}">Keluar</a></li>
                     </ul>
                   </li>
   

@@ -60,7 +60,7 @@
                             <li><a class="dropdown-item" href="#">Profil Saya</a></li>
                             <li><a class="dropdown-item" href="#">Pengaturan</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="/logout">Keluar</a></li>
+                            <li><a class="dropdown-item" href="{{url('/logout')}}">Keluar</a></li>
                         </ul>
                     </li>
             </div>

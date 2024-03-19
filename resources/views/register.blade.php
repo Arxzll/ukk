@@ -30,7 +30,7 @@
       <div class="grid container mb-5 register" style="margin-top:5px;max-width: 540px; ">
         <p><img src="/image/logo5.png" alt="" style="max-width: 147px;margin-left:175px"></p>
 
-      <form method="POST" action="/register" class="container mt-5" style="background-color: rgba(238, 234, 234, 0.8); 
+      <form method="POST" action="{{url('/register')}}" class="container mt-5" style="background-color: rgba(238, 234, 234, 0.8); 
       border-radius:5px;box-shadow: 5px 5px #BAD7E9 ;">   
         @method("POST")
         @csrf
