@@ -9,12 +9,12 @@ use Illuminate\Support\Facades\Auth;
 class PetugasController extends Controller
 {
     function home(){
-        return view('petugas.home');
+        return view('Petugas.home');
     }
     
     function user(){
         $user = DB::table('user')->where('level','user')->get() ;
-        return view('petugas/data_user',['user' => $user]);
+        return view('Petugas/data_user',['user' => $user]);
       }
     function petugas(){
       if (Auth::user()->level=='petugas') 
@@ -23,7 +23,7 @@ class PetugasController extends Controller
       }
 
         $user = DB::table('user')->where('level','petugas')->get() ;
-        return view('petugas.data_petugas',['user' => $user]);
+        return view('Petugas.data_petugas',['user' => $user]);
       
       }
 
