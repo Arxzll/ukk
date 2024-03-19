@@ -100,7 +100,7 @@ class PeminjamanController extends Controller
             ->where('username', 'like', '%' .$_GET['q'].'%')->orWhere('PeminjamanID', '=',$_GET['q'])
             ->get();
         }
-        return view('petugas.peminjaman' , ['list' => $list]);
+        return view('Petugas.peminjaman' , ['list' => $list]);
     }
     public function detail_peminjaman($PeminjamanID){
 

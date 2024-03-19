@@ -29,7 +29,7 @@ class BukuController extends Controller
     
 
 
-    return redirect('/Petugas/tambah_buku');
+    return redirect('/petugas/tambah_buku');
     }
 
     public function tampil_kategori()
@@ -43,7 +43,7 @@ class BukuController extends Controller
             'NamaKategori' => $request->NamaKategori,
         ]);
         
-        return redirect('/Petugas/tambah_kategori')->with(['message' => 'Kategori berhasil dibuat']);
+        return redirect('/petugas/tambah_kategori')->with(['message' => 'Kategori berhasil dibuat']);
     }
     
     public function data_buku()
@@ -86,7 +86,7 @@ class BukuController extends Controller
     ]);
 
     // Redirect kembali ke halaman data buku dengan pesan sukses
-    return redirect('/Petugas/data_buku')->with('success', 'Data buku berhasil diupdate.');
+    return redirect('/petugas/data_buku')->with('success', 'Data buku berhasil diupdate.');
     }
     
     public function data_kategori()

@@ -31,7 +31,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:rgb(25, 61, 179); box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.50)">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/petugas/home">
+            <a class="navbar-brand" href="{{url('/petugas/home')}}">
                 <img src="/image/logo7.png" alt="" width="100" height="47">
             </a>
     
