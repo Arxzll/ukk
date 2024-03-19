@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class PetugasController extends Controller
 {
     function home(){
-        return view('petugas.home');
+        return view('Petugas.home');
     }
     
     function user(){
