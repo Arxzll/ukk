@@ -12,6 +12,22 @@
     <title>Document</title>
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
+     .footer {
+    background-color: #211C6A;
+    color: #fff;
+    padding: 20px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+    margin-top: 30px;
+}
+
+.footer p {
+    margin-bottom: 5px;
+}
+
+
       body{
         background-color:rgb(245, 245, 245);
         overflow: hidden;
@@ -32,73 +48,85 @@
         overflow-x: scroll;
         width: 100%;
       }
+      .carousel-item img {
+            width: 100%;
+            height: auto;
+        }
     </style>
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-    <div id="carouselExampleDark" class="carousel carousel-dark slide carousel-fluid" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="10000">
-            <img class="d-block w-100 img-fluid " src="/image/img1.png" alt="First slide" style="height: 329px;object-fit: cover;">
-            <div class="carousel-caption d-none d-md-block">
-             
-            </div>
-          </div>
-    
-          <div class="carousel-item" data-bs-interval="2000">
-            <img class="d-block w-100 img-fluid" src="/image/img2.png" alt="Second slide" style="height: 329px;object-fit: cover;">
-            <div class="carousel-caption d-none d-md-block">
-            
-            </div>
-         
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+
+    <div class="container" style="margin-top: 150px; background-color: #fff;padding:20px 30px">
+      <div class="row">
+        <div class="col-7 mx-5 mt-4" style="color: black">
+          <h1 >Selamat datang di Perpustakaan Indonesia</h1>
+          <h5 >Selamat datang di Perpustakaan Indonesia, tempat di mana pintu pengetahuan selalu terbuka untuk Anda! Mari jelajahi koleksi kami yang kaya dan beragam, dari buku-buku terkini hingga klasik. Temukan dunia literasi tanpa batas dan tingkatkan wawasan Anda di setiap halaman. Mulailah petualangan membaca Anda sekarang, dan mari bersama-sama mengeksplorasi keajaiban dunia tulisan!</h5>
       </div>
+        <div class="col-3 text-right">
+          <img src="/image/1233.jpg" alt="Footer Image" style="max-width: 400px; height: auto">
+      </div>
+    </div>
+    </div>
+
    
-
-
-      <script>
-        @if(session('success'))
-            const Toast = Swal.mixin({
-                toast: true,
-                position: "top-end",
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.onmouseenter = Swal.stopTimer;
-                    toast.onmouseleave = Swal.resumeTimer;
-                }
-            });
-            Toast.fire({
-                icon: "success",
-                title: "{{ session('success') }}"
-            });
-        @elseif(session('error'))
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: '{{ session('error') }}',
-                timer: 3000,
-                showConfirmButton: false
-            });
-        @endif
-      </script>
-      
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <footer class="footer">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-5">
+                  <h5>Alamat Perpustakaan</h5>
+                  <p>Jl. Kesayang Papahmu No. 11</p>
+                  <p>Karawang</p>
+              </div>
+              <div class="col-md-5">
+                  <h5>Kontak</h5>
+                  <p>Email: PerpustakaanIndonesia@gmail.com</p>
+                  <p>Telepon: (62) 51-6113-2690</p>
+              </div>
+              <!-- Tambahkan kolom untuk gambar di pojok kanan footer -->
+              <div class="col-md-2 text-right">
+                  <img src="/image/111.png" alt="Footer Image" style="max-width: 180px; height: auto;opacity: 2;">
+              </div>
+          </div>
+          <hr>
+          <div class="row">
+              <div class="col-md-12 text-center">
+                  <p>&copy; 2024 Perpustakaan Indonesia. All rights reserved.</p>
+              </div>
+          </div>
+      </div>
+    </footer>
 </body>
+<script>
+  @if(session('success'))
+      const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+          }
+      });
+      Toast.fire({
+          icon: "success",
+          title: "{{ session('success') }}"
+      });
+  @elseif(session('error'))
+      Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: '{{ session('error') }}',
+          timer: 3000,
+          showConfirmButton: false
+      });
+  @endif
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 <script src="/assets/plugins/common/common.min.js"></script>
 <script src="/assets/js/custom.min.js"></script>
 <script src="/assets/js/settings.js"></script>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Models\Peminjaman;
 use App\Models\Buku;
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 
 class PeminjamanController extends Controller
 {
+    
     public function pinjambuku(Request $request) {
         $user = Auth::user();
         $bukuId = $request->input('BukuID');
@@ -34,6 +36,7 @@ class PeminjamanController extends Controller
     
         return back();
     }
+    
     public function updatebuku(Request $request) {
         $user = Auth::user();
         $bukuId = $request->input('BukuID');
@@ -94,7 +97,7 @@ class PeminjamanController extends Controller
             $list = DB::table('peminjaman')
             ->join('buku', 'buku.BukuID', '=', 'peminjaman.BukuID')
             ->join('user', 'user.UserID', '=', 'peminjaman.UserID')
-            ->where('PeminjamanID', '=',$_GET['q'])
+            ->where('username', 'like', '%' .$_GET['q'].'%')->orWhere('PeminjamanID', '=',$_GET['q'])
             ->get();
         }
         return view('petugas.peminjaman' , ['list' => $list]);

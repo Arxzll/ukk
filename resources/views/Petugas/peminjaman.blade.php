@@ -8,18 +8,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+      .fixed-background {
+  background-image:  url('/image/bg.jpg'); /* Ganti 'background-image.jpg' dengan URL gambar latar belakang Anda */
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Warna teks */
+}
+    </style>
 </head>
-<body  style="background-image: url('/image/bg.jpg');
-    background-repeat: no-repeat;
-      background-size: cover;">
-    
+<body>
+     <div class="fixed-background" style=" margin-top: 80px;">
   <div class="col pt-5">
-      <form class="d-flex justify-content-center " role="search" action="" method="get">
-        {{-- @csrf --}}
-        {{-- @method("GET") --}}
-        <input style="width: 20%;" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
-        <button class="btn btn-outline-primary" type="submit">Search</button>
-      </form>
+    <form class="d-flex justify-content-center" role="search" action="" method="get">
+      {{-- @csrf --}}
+      {{-- @method("GET") --}}
+      <input style="width: 30%;" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
+      <button class="btn btn-outline-primary" type="submit">Search</button>
+  </form>
+  
 @foreach ($list as $list)
     
 <div class="card mb-3 shadow m-4">
@@ -64,10 +74,10 @@
         </div>
     </div>
 </div>
-
 @endforeach
 
-    </div>
+</div>
+</div>
 </body>
 <script>
   function showSuccessNotificationAndReload() {

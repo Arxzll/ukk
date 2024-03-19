@@ -23,7 +23,8 @@ class PetugasController extends Controller
       }
 
         $user = DB::table('user')->where('level','petugas')->get() ;
-        return view('petugas/data_petugas',['user' => $user]);
+        return view('petugas.data_petugas',['user' => $user]);
+      
       }
 
       function hapus($id){

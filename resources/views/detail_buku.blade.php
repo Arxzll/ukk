@@ -63,7 +63,7 @@
          margin: auto;
          display: block;
          width: 320px;
-         height: 308px;
+         height: 378px;
          position: fixed;
          top: 50%;
          left: 50%;
@@ -72,8 +72,9 @@
    
       .close {
          position: absolute;
-         top: 15px;
-         right: 35px;
+         z-index: 2;
+         top: 130px;
+         right: 37%;
          font-size: 30px;
          color: white;
          cursor: pointer;
@@ -97,11 +98,25 @@
             font-size: 14px;
          }
       }
+      .footer {
+    background-color: #211C6A;
+    color: #fff;
+    padding: 20px 0;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+    margin-top: 30px;
+}
+
+.footer p {
+    margin-bottom: 5px;
+}
+  
    </style>
    
 </head>
 <body>
-<div class="container" style="margin-left: 5%;margin-top:6%; ">
+<div class="container-fluid" style="margin-left:  0px;margin-top:140px; ">
   <div class="row">
     <div class="col-3">
       <div class="gambar shadow" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
@@ -110,12 +125,12 @@
     
       <p> <br>Penulis: {{$buku->Penulis}}
       <br>Penerbit: {{$buku->Penerbit}}
-      <br>Tahun Terbit: {{$buku->TahunTerbit}}
+      <br>Tanggal Terbit: {{$buku->TahunTerbit}}
       <br>Kategori: {{$kategori->NamaKategori}}
       </p>
     </div>
 
-    <div class="col-9">
+    <div class="col-7">
       <h5>{{$buku->Penulis}}</h5>
       <div class="text">
     <h3><b><u>{{$buku->Judul}}</u></b></h3>
@@ -123,16 +138,28 @@
       <h5><b><u>Deskripsi Buku</u></b></h5>
       <p class="text-justify" id="bookDescription">
         <span id="shortDescription">{{ substr($buku->Deskripsi, 0, 300) }} .......</span>
-        <span id="fullDescription" style="display: none;">{{ $buku->Deskripsi }}</span>
+        <span id="fullDescription" style="display: none;">  {!! nl2br(e($buku->Deskripsi)) !!}</span>
     </p>
     <a href="javascript:void(0);" id="readMoreLink" onclick="toggleDescription()" style="text-decoration: none">Baca Selengkapnya</a> </div>
     </div> 
     <br>
+    {{-- @foreach ($peminjaman as $pinjam)
+      <form id="pinjamForm" action="{{ route('peminjaman.pinjambuku') }}" method="POST">
+        @method('POST')
+        @csrf
+        <input type="hidden" name="BukuID" value="{{ $buku->BukuID }}">
+        @if ($pinjam->StatusPeminjaman == 'DiTerima' || $pinjam->StatusPeminjaman == 'menunggu' || $pinjam->StatusPeminjaman == 'Selesai')
+            <button class="btn btn-primary shadow" type="button" disabled>Buku Sudah Dipinjam</button>
+        @else 
+            <button class="btn btn-primary shadow" type="button" onclick="pinjamBuku()">Pinjam</button>
+        @endif
+      </form>
+    @endforeach --}}
+    
     <form id="pinjamForm" action="{{ route('peminjaman.pinjambuku') }}" method="POST">
       @method('POST')
       @csrf
       <input type="hidden" name="BukuID" value="{{ $buku->BukuID }}">
-      @if
       <button class="btn btn-primary shadow" type="button" onclick="pinjamBuku()">Pinjam</button>
   </form>
   
@@ -201,6 +228,32 @@
         </div>
       </div>
     </div>
+    <footer class="footer">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-5">
+                  <h5>Alamat Perpustakaan</h5>
+                  <p>Jl. Kesayang Papahmu No. 11</p>
+                  <p>Karawang</p>
+              </div>
+              <div class="col-md-5">
+                  <h5>Kontak</h5>
+                  <p>Email: PerpustakaanIndonesia@gmail.com</p>
+                  <p>Telepon: (62) 51-6113-2690</p>
+              </div>
+              <!-- Tambahkan kolom untuk gambar di pojok kanan footer -->
+              <div class="col-md-2 text-right">
+                  <img src="/image/111.png" alt="Footer Image" style="max-width: 180px; height: auto;opacity: 2;">
+              </div>
+          </div>
+          <hr>
+          <div class="row">
+              <div class="col-md-12 text-center">
+                  <p>&copy; 2024 Perpustakaan Indonesia. All rights reserved.</p>
+              </div>
+          </div>
+      </div>
+    </footer>
   </section>
 </div>
 <div id="imageModal" class="modal">

@@ -23,9 +23,11 @@
        </style>
        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
-  <body class="align">
+  <body class="align" style="background-image: url('/image/bg.jpg');
+  background-repeat: no-repeat;
+    background-size: cover;">>
 
-      <div class="grid container mb-5 register" style="margin-top:50px;max-width: 540px; ">
+      <div class="grid container mb-5 register" style="margin-top:5px;max-width: 540px; ">
         <p><img src="/image/logo5.png" alt="" style="max-width: 147px;margin-left:175px"></p>
 
       <form method="POST" action="/register" class="container mt-5" style="background-color: rgba(238, 234, 234, 0.8); 
@@ -58,6 +60,7 @@
       </form>
   
     </div>
+  </body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   
     <!-- <svg xmlns="http://www.w3.org/2000/svg" class="icons">

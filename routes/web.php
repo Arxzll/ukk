@@ -12,7 +12,9 @@ use App\Http\Controllers\PeminjamanController;
 
 Route::get('/logout', [LoginController::class, 'logout']);
 
-
+route::get('/index1', function(){
+return view('index1');
+});
 Route::middleware(['redirectIfAuthenticated'])->group(function () {
     Route::get('/login', [LoginController::class, 'tampil']);
     Route::post('/login', [LoginController::class, 'login'])->name("login");
@@ -41,6 +43,8 @@ Route::group(['middleware' => 'level:petugas,admin'], function(){
     // Rute yang memerlukan middleware AdminPetugasMiddleware
     Route::get('/petugas/tambah_buku', [BukuController::class, 'tampil']);
     Route::post('/petugas/tambah_buku', [BukuController::class, 'store']);
+    Route::get('/petugas/update_buku{BukuID}', [BukuController::class, 'data_buku_update'])->name("buku.edit");
+    Route::post('/petugas/update_buku{BukuID}', [BukuController::class, 'data_buku_store'])->name("buku.update");
     Route::get('/petugas/hapus/{BukuID}', [PetugasController::class, 'hapus']);
     Route::get('/petugas/hapus_kategori/{KategoriID}', [PetugasController::class, 'hapus_kategori']);
     Route::post('/petugas/tambah_petugas', [AuthController::class, 'store_petugas']);
@@ -56,6 +60,7 @@ Route::group(['middleware' => 'level:petugas,admin'], function(){
     route::post('/petugas/masuk_kategori', [BukuController::class, 'masuk_kategori']);
     Route::get('/petugas/data_user', [PetugasController::class, 'user']);
     Route::get('/petugas/data_petugas', [PetugasController::class, 'petugas']);
+    Route::get('/peminjaman/hapus_peminjaman/{id}', [PeminjamanController::class, 'hapus_peminjaman']);
     // Route to handle 'Terima' action for all "pengaduan" rows with status '0'
 Route::get('/petugas/terima-buku/{id}', [PetugasController::class, 'terima']);
 Route::get('/petugas/pinjam-buku/{id}', [PetugasController::class, 'pinjam']);

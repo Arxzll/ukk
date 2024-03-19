@@ -9,10 +9,21 @@
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
-<body  style="background-image: url('/image/bg.jpg');
-background-repeat: no-repeat;
-  background-size: cover;">
-    
+<style>
+  .fixed-background {
+  background-image:  url('/image/bg.jpg'); /* Ganti 'background-image.jpg' dengan URL gambar latar belakang Anda */
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Warna teks */
+}
+
+</style>
+<body>
+
+     <div class="fixed-background" style=" margin-top: 20px;">
     <div class="col pt-5">
 @foreach ($list as $list)
     
@@ -56,6 +67,7 @@ background-repeat: no-repeat;
 @endforeach
 
     </div>
+     </div>
 </body>
 <script>
   function showSuccessNotificationAndReload() {

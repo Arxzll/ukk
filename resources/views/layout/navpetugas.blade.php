@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Perpustakaan Indonesia</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Asap+Condensed:wght@200;300;500;600&family=Bebas+Neue&display=swap');
@@ -29,7 +29,7 @@
          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> 
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:rgb(25, 61, 179); box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.50)">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:rgb(25, 61, 179); box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.50)">
         <div class="container-fluid">
             <a class="navbar-brand" href="/petugas/home">
                 <img src="/image/logo7.png" alt="" width="100" height="47">
@@ -41,19 +41,17 @@
             </button>
     
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav mx-auto me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" href="/petugas/home">Beranda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/petugas/peminjaman">Peminjaman</a>
                     </li>
-                </ul>
-                <ul class="navbar-nav me-2 mb-2 mb-lg-0">
-                <li class="nav-item dropdown" style="margin-right: 10px">
-                    <button class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                     <li class="nav-item dropdown" style="margin-right: 10px">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                       Tambah
-                    </button>
+                    </a>
                     <ul class="dropdown-menu dropdown-menu-dark">
                       <li><a class="dropdown-item" href="/petugas/tambah_buku">Tambah Buku</a></li>
                       <li><a class="dropdown-item" href="/petugas/tambah_kategori">Tambah Kategori</a></li>
@@ -65,9 +63,9 @@
                   </li>
 
                 <li class="nav-item dropdown">
-                    <button class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                       Data
-                    </button>
+                    </a>
                     <ul class="dropdown-menu dropdown-menu-dark">
                       @if(auth()->user()->level == 'admin')
                       <li><a class="dropdown-item" href="/petugas/data_petugas">Data Petugas</a></li>
@@ -78,7 +76,10 @@
                     </ul>
                   </li>
                 </ul>
-                <ul class="navbar-nav me-2 mb-2 mb-lg-0">
+                <ul class="navbar-nav  mb-2 mb-lg-0">
+               
+                </ul>
+                <ul class="navbar-nav me-4 mb-2 mb-lg-0">
                    <!-- Dropdown Profil -->
                    <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="profilDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

@@ -22,12 +22,13 @@
       width: 40px; /* Sesuaikan ukuran foto profil */
       height: 40px;
     }
+
          </style>
          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> 
 </head>
 <body>
   
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:rgb(25, 61, 179); box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.50)">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:rgb(25, 61, 179); box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.50);  ">
         <div class="container-fluid">
             <a class="navbar-brand" href="/home">
                 <img src="/image/logo7.png" alt="" width="100" height="47">
@@ -39,7 +40,7 @@
             </button>
     
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav mx-auto me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" href="/home">Beranda</a>
                     </li>
@@ -48,7 +49,7 @@
                     </li>
                  
                 </ul>
-                <ul class="navbar-nav me-2 mb-2 mb-lg-0">
+                <ul class="navbar-nav me-4 mb-2 mb-lg-0">
                     <!-- Dropdown Profil -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="profilDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

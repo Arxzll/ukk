@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/css/bg.css">
   </head>
   <body>
-  <h4 style="text-align: center; margin-top: 20px; margin-bottom: 30px;">Data User</h4>  
+  <h1 style="text-align: center; margin-top: 20px; margin-bottom: 30px;margin-top: 100px;">Data User</h1>  
   <div style="width: 100%; justify-content: center;">
     <table class="table table-hover container shadow" style="background-color: rgba(238, 234, 234, 0.8); text-align:left;" width="100px">
        

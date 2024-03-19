@@ -42,14 +42,14 @@
           <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
         </div>
         <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="10000">
+          <div class="carousel-item active" data-bs-interval="5000">
             <img class="d-block w-100 img-fluid " src="/image/img1.png" alt="First slide" style="height: 329px;object-fit: cover;">
             <div class="carousel-caption d-none d-md-block">
              
             </div>
           </div>
     
-          <div class="carousel-item" data-bs-interval="2000">
+          <div class="carousel-item" data-bs-interval="5000">
             <img class="d-block w-100 img-fluid" src="/image/img2.png" alt="Second slide" style="height: 329px;object-fit: cover;">
             <div class="carousel-caption d-none d-md-block">
             

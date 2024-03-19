@@ -11,7 +11,7 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 <body>
-<h4 style="text-align: center; margin-top: 20px; margin-bottom: 30px;">Data Buku</h4>  
+<h1 style="text-align: center; margin-top: 20px; margin-bottom: 30px; margin-top: 100px;">Data Buku</h1>  
   <div style="width: 100%; justify-content: center;">
       <table class="table table-hover container shadow" style="background-color: rgba(238, 234, 234, 0.8); text-align:left; box-shadow" width="100px" >
         <thead>
@@ -20,7 +20,7 @@
               <th scope="col">Judul</th>
               <th scope="col">Penulis</th>
               <th scope="col">Penerbit</th>
-              <th scope="col">Tahun Terbit</th>
+              <th scope="col">Tanggal Terbit</th>
               <th scope="col">Status</th>
               <th scope="col">opsi</th>
           </tr> 
@@ -41,8 +41,11 @@
       <span>
         <button onclick="confirmDelete(event, '{{ $b->BukuID }}')" class="btn btn-danger">
           <i class="fas fa-trash"></i> Hapus
-        </button>
         
+        </button>
+        <a href="{{ route('buku.edit', $b->BukuID) }}" class="btn btn-primary">
+          <i class="fas fa-edit"></i> Edit
+        </a>  
       </span>
 
     </td>

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Auth;
 
 class BukuController extends Controller
 {
@@ -47,7 +47,6 @@ class BukuController extends Controller
             'TahunTerbit' => $request->TahunTerbit,
             'Deskripsi' => $request->Deskripsi,
             'Foto' => $namaFoto,
-            'Stok' => $request->Stok,
         ]);
 
         return back()->with(['message' => 'Buku berhasil dibuat']);
@@ -75,7 +74,43 @@ class BukuController extends Controller
     {
         $judul = "Selamat Datang";
         $buku = DB::table('buku')->get();
-        return view('/petugas/data_buku', ['judul' => $judul, 'buku' => $buku]);
+        $peminjaman = DB::table('peminjaman')
+        ->join('buku', 'buku.BukuID', '=', 'peminjaman.BukuID')
+        ->join('user', 'user.UserID', '=', 'peminjaman.UserID')
+        ->where('user.UserID', '=', Auth::user()->UserID)
+        ->where('peminjaman.PeminjamanID', '=', 'PeminjamanID')
+        ->get();
+        return view('/petugas/data_buku', ['judul' => $judul, 'buku' => $buku, 'peminjaman'=> $peminjaman]);
+    }
+    public function data_buku_update($id)
+    {
+        $buku = DB::table('buku')->where('BukuID', $id)->first();
+        return view('Petugas.update_buku', ['buku' => $buku]);
+    }
+
+    public function data_buku_store(Request $request, $id)
+    {
+        // Validasi input
+        $namaFoto = "";
+        if ($request->hasFile('Foto')) {
+
+            // return "hai";
+             $namaFoto = time() . $request->Foto->getClientOriginalName();
+             $request->Foto->move('image', $namaFoto);
+        }
+
+    // Update data buku
+    DB::table('buku')->where('BukuID', $id)->update([
+        'judul' => $request->judul,
+        'penulis' => $request->penulis,
+        'penerbit' => $request->penerbit,
+        'TahunTerbit' => $request->TahunTerbit,
+        'Deskripsi' => $request->Deskripsi,
+        'Foto' => $namaFoto,
+    ]);
+
+    // Redirect kembali ke halaman data buku dengan pesan sukses
+    return redirect('/petugas/data_buku')->with('success', 'Data buku berhasil diupdate.');
     }
     
     public function data_kategori()
@@ -94,17 +129,16 @@ class BukuController extends Controller
     {
         $buku = DB::table('buku')->where('Judul', '=', $Judul)
         ->first();
-        $peminjaman = DB::table('peminjaman')->where([['BukuID' ,'=',$buku->BukuID] , ['UserID','=', Auth::user()->UserID ]]);
+        $peminjaman = DB::table('peminjaman')->where([['BukuID' ,'=',$buku->BukuID] , ['UserID','=', Auth::user()->UserID ]])->get();
         $kategori = DB::table('kategoribuku_relasi')->where('BukuID', '=', $buku->BukuID)
         ->join('kategoribuku', 'kategoribuku.KategoriID', '=', 'kategoribuku_relasi.KategoriID')
         ->first();
-        
         $ulasan = DB::table('user')
 
         ->join('ulasanbuku', 'ulasanbuku.UserID', '=', 'user.UserID')
         ->where('BukuID', '=', $buku->BukuID)->get();
-        
-        return view('detail_buku', ['buku' => $buku, 'ulasan' => $ulasan, 'kategori'=>$kategori]);
+        // return count($peminjaman);
+        return view('detail_buku', ['buku' => $buku, 'ulasan' => $ulasan, 'kategori'=>$kategori, 'peminjaman'=>$peminjaman]);
     }
     public function tampil_masuk_kategori(){
         $kategori = DB::table('kategoribuku')->get();

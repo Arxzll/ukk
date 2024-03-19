@@ -13,7 +13,7 @@
    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
   <body class="align">
-<h1 style="text-align: center; margin-top: 50px; font-weight:bold;">Tambah Kategori</h1>
+<h1 style="text-align: center; margin-top: 100px; font-weight:bold;">Tambah Kategori</h1>
     <div class="grid container mb-5 register">
       <div class="card container mt-5 shadow-lg" style="width: 50%"> 
       <form method="POST" action="" class="container mt-3">
