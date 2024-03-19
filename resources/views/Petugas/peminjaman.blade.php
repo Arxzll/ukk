@@ -37,7 +37,7 @@
     <div class="card-body">
 
         <div class="d-flex flex-start">
-            <img class="shadow-1-strong me-3" src="/image/{{$list->Foto}}" alt="" width="80" height="80" style="object-fit: cover; border-radius:;" />
+            <img class="shadow-1-strong me-3" src="{{$list->Foto}}" alt="" width="80" height="80" style="object-fit: cover; border-radius:;" />
             <div class="w-100">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <div class="col p-2">
