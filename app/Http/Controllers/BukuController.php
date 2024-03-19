@@ -10,7 +10,7 @@ class BukuController extends Controller
 {
     public function tampil()
     {
-        return view('/petugas/tambah_buku');
+        return view('/Petugas/tambah_buku');
     }
     public function store(Request $request)
     {
@@ -53,12 +53,12 @@ class BukuController extends Controller
     
 
 
-    return redirect('/petugas/tambah_buku');
+    return redirect('/Petugas/tambah_buku');
     }
 
     public function tampil_kategori()
     {
-        return view('/petugas/tambah_kategori');
+        return view('/Petugas/tambah_kategori');
     }
     
     public function store_kategori(Request $request)
@@ -67,7 +67,7 @@ class BukuController extends Controller
             'NamaKategori' => $request->NamaKategori,
         ]);
         
-        return redirect('/petugas/tambah_kategori')->with(['message' => 'Kategori berhasil dibuat']);
+        return redirect('/Petugas/tambah_kategori')->with(['message' => 'Kategori berhasil dibuat']);
     }
     
     public function data_buku()
@@ -80,7 +80,7 @@ class BukuController extends Controller
         ->where('user.UserID', '=', Auth::user()->UserID)
         ->where('peminjaman.PeminjamanID', '=', 'PeminjamanID')
         ->get();
-        return view('/petugas/data_buku', ['judul' => $judul, 'buku' => $buku, 'peminjaman'=> $peminjaman]);
+        return view('/Petugas/data_buku', ['judul' => $judul, 'buku' => $buku, 'peminjaman'=> $peminjaman]);
     }
     public function data_buku_update($id)
     {
@@ -110,13 +110,13 @@ class BukuController extends Controller
     ]);
 
     // Redirect kembali ke halaman data buku dengan pesan sukses
-    return redirect('/petugas/data_buku')->with('success', 'Data buku berhasil diupdate.');
+    return redirect('/Petugas/data_buku')->with('success', 'Data buku berhasil diupdate.');
     }
     
     public function data_kategori()
     {
         $user = DB::table('kategoribuku')->get();
-        return view('petugas/data_kategori', ['user' => $user]);
+        return view('Petugas/data_kategori', ['user' => $user]);
     }
     
     public function hapus($id)
@@ -143,7 +143,7 @@ class BukuController extends Controller
     public function tampil_masuk_kategori(){
         $kategori = DB::table('kategoribuku')->get();
         $buku = DB::table('buku')->get();
-        return view('/petugas/masuk_kategori', ['kategori' => $kategori, 'buku' => $buku]);
+        return view('/Petugas/masuk_kategori', ['kategori' => $kategori, 'buku' => $buku]);
     }
     public function masuk_kategori(Request $request){
 
