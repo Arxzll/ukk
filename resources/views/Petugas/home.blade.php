@@ -12,58 +12,44 @@
     <title>Document</title>
     <link href="/assets/css/style.css" rel="stylesheet">
     <style>
-     .footer {
+    body{
+        background-color:rgb(255, 255, 255);
+        .row {
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+    display: flex;  
+    flex-wrap: wrap;
+    margin-top: calc(var(--bs-gutter-y)* -1);
+    margin-right: calc(var(--bs-gutter-x)* -.5);
+    margin-left: calc(var(--bs-gutter-x)* -.5);
+}
+.footer {
     background-color: #211C6A;
     color: #fff;
     padding: 20px 0;
-    position: absolute;
     bottom: 0;
     width: 100%;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
-    margin-top: 30px;
+    margin-top: 20%;
 }
 
 .footer p {
     margin-bottom: 5px;
 }
-
-
-      body{
-        background-color:rgb(245, 245, 245);
-        overflow: hidden;
-      }
-      .card{
-        width: 200px;
-      }
-      .card-img-top { 
-        height: 188px;
-        filter: brightness(100%);
-        transition: filter 0.2s ease-in-out;
-      }
-    
-      .card:hover .card-img-top {
-        filter: brightness(60%);
-      }
-      .role{
-        overflow-x: scroll;
-        width: 100%;
-      }
-      .carousel-item img {
-            width: 100%;
-            height: auto;
-        }
+  }
+      
     </style>
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 
-    <div class="container" style="margin-top: 150px; background-color: #fff;padding:20px 30px">
+    <<div class="container" style="margin-top: 150px; background-color: #fff; padding:20px 30px">
       <div class="row">
-        <div class="col-7 mx-5 mt-4" style="color: black">
+        <div class="col-lg-7 col-md-8 col-sm-12 mx-auto mt-4" style="color: black">
           <h1 >Selamat datang di Perpustakaan Indonesia</h1>
           <h5 >Selamat datang di Perpustakaan Indonesia, tempat di mana pintu pengetahuan selalu terbuka untuk Anda! Mari jelajahi koleksi kami yang kaya dan beragam, dari buku-buku terkini hingga klasik. Temukan dunia literasi tanpa batas dan tingkatkan wawasan Anda di setiap halaman. Mulailah petualangan membaca Anda sekarang, dan mari bersama-sama mengeksplorasi keajaiban dunia tulisan!</h5>
       </div>
-        <div class="col-3 text-right">
+      <div class="col-lg-3 col-md-4 col-sm-12 text-right">
           <img src="/image/1233.jpg" alt="Footer Image" style="max-width: 400px; height: auto">
       </div>
     </div>
@@ -73,20 +59,17 @@
     <footer class="footer">
       <div class="container">
           <div class="row">
-              <div class="col-md-5">
+              <div class="col-6">
                   <h5>Alamat Perpustakaan</h5>
                   <p>Jl. Kesayang Papahmu No. 11</p>
                   <p>Karawang</p>
               </div>
-              <div class="col-md-5">
+              <div class="col-6">
                   <h5>Kontak</h5>
                   <p>Email: PerpustakaanIndonesia@gmail.com</p>
                   <p>Telepon: (62) 51-6113-2690</p>
               </div>
               <!-- Tambahkan kolom untuk gambar di pojok kanan footer -->
-              <div class="col-md-2 text-right">
-                  <img src="/image/111.png" alt="Footer Image" style="max-width: 180px; height: auto;opacity: 2;">
-              </div>
           </div>
           <hr>
           <div class="row">

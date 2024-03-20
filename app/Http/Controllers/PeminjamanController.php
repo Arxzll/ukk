@@ -16,65 +16,60 @@ class PeminjamanController extends Controller
     public function pinjambuku(Request $request) {
         $user = Auth::user();
         $bukuId = $request->input('BukuID');
-        $tanggalPeminjaman = now(); // Tambahkan 1 hari dari sekarang
-            $tanggalPengembalian = now()->addDays(8); // Tambahkan 8 hari dari sekarang
+        
         // Lakukan validasi atau manipulasi data buku jika diperlukan
         $buku = Buku::find($bukuId);
-    
+        
         if (!$buku) {
             return "Buku tidak ditemukan.";
         }
-    
+        
+        // Set waktu peminjaman menjadi hari ini
+        $tanggalPeminjaman = now();
+        
+        // Set waktu pengembalian menjadi 7 hari setelah hari ini
+        $tanggalPengembalian = now()->addDays(7);
+        
+        // Tetapkan status peminjaman sebagai "menunggu"
+        $statusPeminjaman = 'menunggu';
+        
         // Simpan data peminjaman ke dalam database
         Peminjaman::create([
             'UserID' => $user->UserID,
             'BukuID' => $bukuId,
             'TanggalPeminjaman' => $tanggalPeminjaman,
             'TanggalPengembalian' => $tanggalPengembalian,
-            'StatusPeminjaman' => 'menunggu',
+            'StatusPeminjaman' => $statusPeminjaman,
         ]);
-    
+        
         return back();
     }
     
-    public function updatebuku(Request $request) {
+    public function terimapinjaman(Request $request) {
         $user = Auth::user();
         $bukuId = $request->input('BukuID');
-    
-        // Lakukan validasi atau manipulasi data buku jika diperlukan
-        $buku = Buku::find($bukuId);
-    
-        if (!$buku) {
-            return "Buku tidak ditemukan.";
+        
+        // Cari catatan peminjaman yang sudah ada oleh user untuk buku ini
+        $peminjaman = Peminjaman::where('UserID', $user->UserID)
+                                  ->where('BukuID', $bukuId)
+                                  ->first();
+        
+        if ($peminjaman) {
+            // Perbarui waktu peminjaman menjadi 1 hari setelah hari ini
+            $peminjaman->TanggalPeminjaman = now()->addDays(1);
+            
+            // Perbarui waktu pengembalian menjadi 8 hari setelah hari ini
+            $peminjaman->TanggalPengembalian = now()->addDays(8);
+            
+            // Simpan perubahan ke dalam database
+            $peminjaman->save();
+        } else {
+            return "Peminjaman tidak ditemukan.";
         }
-    
-        // Lakukan pembaruan data buku sesuai dengan input yang diterima dari form
-        $buku->judul = $request->input('judul');
-        $buku->pengarang = $request->input('pengarang');
-        // Tambahkan atribut-atribut lainnya yang ingin Anda perbarui
-    
-        // Mengisi waktu pembaruan otomatis
-        $buku->updated_at = now();
-    
-        // Jika status buku diubah menjadi "Diterima"
-        if ($request->input('StatusPeminjaman') === 'menunggu') {
-            // Set status menjadi "Dipinjam"
-            $buku->status = 'Dipinjam';
-    
-            // Update waktu peminjaman dan waktu pengembalian
-            $tanggalPeminjaman = now(); // Tambahkan 1 hari dari sekarang
-            $tanggalPengembalian = now()->addDays(7); // Tambahkan 8 hari dari sekarang
-    
-            $buku->tanggal_peminjaman = $tanggalPeminjaman;
-            $buku->tanggal_pengembalian = $tanggalPengembalian;
-        }
-    
-        // Simpan perubahan ke dalam database
-        $buku->save();
-    
-        // Kembalikan ke halaman sebelumnya atau halaman tertentu setelah berhasil mengupdate
-        return redirect()->route('petugas.peminjaman')->with('success', 'Buku berhasil diperbarui');
+        
+        return back();
     }
+    
     
 
     public function list_pinjam(){
